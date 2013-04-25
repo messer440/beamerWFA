@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tar -zxvf ./themes.tar.gz
+mv texmf/ ~
+texhash ~/texmf/
+
+clear
+echo "Zainstalowano tematy uniwersyteckie"
+echo "Nazwy tematow: UWr_blue oraz UWr_white"
+echo "Wszelkie uwagi prosze kierowac pod adres"
+echo "krzysztof.cach@ift.uni.wroc.pl"
