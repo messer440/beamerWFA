@@ -85,12 +85,12 @@
 \setbeamercolor{block body}{fg = smokedWhite, bg = uniBlue80}
 
 % Alert block
-\setbeamercolor{block title alerted}{bg = AlBody, fg = white}
+\setbeamercolor{block title alerted}{bg = AlBody!90!black, fg = white}
 \setbeamercolor{block body alerted}{fg = smokedWhite, bg = uniBlue90!95!white}
 
 % Example block
-\setbeamercolor{block title example}{fg = white, bg = uniWFA!90!black}
-\setbeamercolor{block body example}{fg = smokedWhite, bg = uniBlue80!85!white}
+\setbeamercolor{block title example}{fg = white, bg = uniWFA!80!black}
+\setbeamercolor{block body example}{fg = smokedWhite, bg = uniBlue80!90!white}
 
 % Color of the text
 \setbeamercolor{normal text}{fg = smokedWhite}
@@ -130,80 +130,10 @@
 
 \useoutertheme{}
 
-\newcommand{\LogoUnderline}{%
-		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
-			\pgfsetlinewidth{0.28mm}
-			\color{smokedWhite}
-			\pgfline{\pgfpoint{-3mm}{1mm}} {\pgfpoint{10.9cm}{1mm}}
-		\end{pgfpicture}
-}
+% Declaring logo on main page
+\pgfdeclareimage[width=0.3\paperwidth]{big}{images/sygnetBlue}
 
-\newcommand{\LogoLine}{%
-	\raisebox{-1.2mm}[0pt][0pt]{%
-		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
-			\pgfsetlinewidth{1.5mm}
-			\color{uniWFA}
-			\pgfline{\pgfpoint{15.4mm}{1mm}} {\pgfpoint{18.8cm}{1mm}}
-		\end{pgfpicture}
-	}
-}
-
-\newcommand{\BackLine}{%
-		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
-			\pgfsetlinewidth{40mm}
-			\color{uniBlue100}
-			\pgfline{\pgfpoint{-10.1mm}{1mm}} {\pgfpoint{15.8cm}{1mm}}
-		\end{pgfpicture}
-}
-
-\setbeamertemplate{headline}[text line]{ \LogoLine}
-
-\setbeamertemplate{sidebar canvas right} {
-	\hspace*{-\paperwidth}%
-	{\includegraphics[height=28pt]{images/logoBlue}}
-}
-
-\setbeamertemplate{frametitle} {%
-	\vspace{0.15cm} \begin{columns}%
-	\column{0.13\textwidth}
-	\column{0.87\textwidth}
-		\insertframetitle
-\end{columns}\vspace{0.1cm}\LogoUnderline}
-
-% Footline 
-\setbeamertemplate{footline}{%
-	\leavevmode%
-	\hbox{%
-	\begin{beamercolorbox}[wd=.5\paperwidth, ht=2.5ex,dp=1.125ex]
-		{title in head/foot} %
-		\centering \tiny \insertshorttitle \hspace{.3cm}
-	\end{beamercolorbox}%
-	
-	\begin{beamercolorbox}[wd=.43\paperwidth, ht=2.5ex,dp=1.125ex]
-		{author in head/foot} %
-		\tiny \centering \insertauthor
-	\end{beamercolorbox}%
-	
-	\begin{beamercolorbox}[wd=.07\paperwidth,ht=2.5ex,dp=1.125ex,center]
-		{info}%
-		\centering\tiny \insertframenumber/\inserttotalframenumber
-	\end{beamercolorbox}%
-	}
-	\vskip0pt
-}
-
-% Navigation symbols -> disabled
-\setbeamertemplate{navigation symbols} {}
-
-\newcommand{\TitleLine}{%
-	\raisebox{-7mm}[0pt][0pt] {%
-		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
-			\pgfsetlinewidth{0.10mm}
-			\color{gray}
-			\pgfline{\pgfpoint{-55mm}{0mm}}{\pgfpoint{55mm}{50mm}}
-		\end{pgfpicture}
-	}
-}
+\setbeamersize{text margin left=1cm}
 
 % Title
 \newcommand{\MyTitle}{%
@@ -224,7 +154,7 @@
 % Institute
 \newcommand{\MyInstitute}{%
 	\vspace{5mm}
-	\centering \footnotesize \textit{\insertinstitute}
+	\centering \footnotesize \insertinstitute
 }
 
 % Date
@@ -232,11 +162,91 @@
 	\centering \small \insertdate
 }
 
-% Declaring logo
-\pgfdeclareimage[width=\paperwidth]{big}{images/sygnetBlue}
+\newcommand{\LogoUnderline}{%
+	\vspace{-1mm}
+	\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+		\pgfsetlinewidth{0.28mm}
+		\color{smokedWhite}
+		\pgfline{\pgfpoint{-3mm}{1mm}} {\pgfpoint{10.9cm}{1mm}}
+	\end{pgfpicture}
+}
 
+\newcommand{\LogoLine}{%
+	\raisebox{-1.2mm}[0pt][0pt]{%
+		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+			\pgfsetlinewidth{1.5mm}
+			\color{uniWFA}
+			\pgfline{\pgfpoint{27mm}{1mm}} {\pgfpoint{16.8cm}{1mm}}
+		\end{pgfpicture}
+	}
+}
+
+\newcommand{\BackLine}{%
+		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+			\pgfsetlinewidth{40mm}
+			\color{uniBlue100}
+			\pgfline{\pgfpoint{-10.1mm}{1mm}} {\pgfpoint{15.8cm}{1mm}}
+		\end{pgfpicture}
+}
+
+\newcommand{\TitleLine}{%
+	\raisebox{-7mm}[0pt][0pt] {%
+		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+			\pgfsetlinewidth{0.10mm}
+			\color{gray}
+			\pgfline{\pgfpoint{-55mm}{0mm}}{\pgfpoint{55mm}{50mm}}
+		\end{pgfpicture}
+	}
+}
+
+% Logo on left side panel
+\setbeamertemplate{sidebar canvas left}{
+	\vspace{-0.8cm}
+	\includegraphics[height=28pt]{images/logoBlue}
+}
+
+\setbeamertemplate{headline}{
+	\LogoLine
+	\vspace{0.8cm}
+}
+
+\setbeamertemplate{frametitle} {%
+	\vspace{-0.8cm}
+	\begin{columns}%
+		\column{0.13\textwidth}
+		\column{0.87\textwidth}
+			\insertframetitle
+	\end{columns}
+	\vspace{0.1cm}
+	\LogoUnderline
+}
+
+% Footline 
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[wd=.5\paperwidth, ht=2.5ex,dp=1.125ex]
+		{title in head/foot} %
+		\centering \tiny \insertshorttitle \hspace{.3cm}
+	\end{beamercolorbox}%
+	
+	\begin{beamercolorbox}[wd=.43\paperwidth, ht=2.5ex,dp=1.125ex]
+		{author in head/foot} %
+		\tiny \centering \insertauthor
+	\end{beamercolorbox}%
+	
+	\begin{beamercolorbox}[wd=.07\paperwidth,ht=2.5ex,dp=1.125ex,center]
+		{info}%
+		\centering\tiny \insertframenumber/\inserttotalframenumber
+	\end{beamercolorbox}%
+	}
+}
+
+% Navigation symbols -> disabled
+\setbeamertemplate{navigation symbols} {}
+
+% TITLE PAGE
 \setbeamertemplate{title page}{
-	\vspace{1cm}
 	\begin{columns}[c]
 		\column{0.4\textwidth}
 		\includegraphics[width=\textwidth]{images/sygnetBlue}
@@ -266,6 +276,5 @@
 	\end{columns}
 }
 
-
- \mode
- <all>
+\mode
+<all>
