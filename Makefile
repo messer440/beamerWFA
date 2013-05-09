@@ -1,7 +1,7 @@
 THEMES=texmf/
-INSTALL_W=install.bat
+INSTALL_W=Instalator.exe
 INSTALL_L=install.run
-DEMOS=Przykład
+DEMOS=Preview
 
 all:
 	make lin win

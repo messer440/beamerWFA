@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1366969023 source:c:\users\szwabin\desktop\beamer\instalator\main.cpp
+	<iostream>
+	<conio.h>
+	<windows.h>
+	<string>
+	<stdlib.h>
+	<cstdlib>
+
